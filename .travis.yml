@@ -3,7 +3,7 @@ matrix:
     - language: python
       python: 3.6
       script:
-        - pytest notebook_test.py
+        - pytest
 
     - language: r
       install:

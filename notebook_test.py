@@ -1,17 +1,15 @@
-import os
 import pytest
 
-# Load all converted Python notebooks
-for module in os.listdir(os.path.dirname(__file__)):
-    if module[-3:] != '.py':
-        continue
-    __import__(module[:-3], locals(), globals())
-del module
+# List all Python .ipynb files
+import python as nb
 
-# Run tests
+# Define tests as functions beginning with "test_"
 def test_expect_equal():
-    assert notebook_output == 2
+    assert nb.notebook_output == 2
 
 def test_expect_error():
     with pytest.raises(Exception) as e_info:
         x = 1 / 0
+
+def this_wont_be_tested():
+    assert nb.notebook_output == 1
