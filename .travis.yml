@@ -1,0 +1,12 @@
+matrix:
+  include:
+    - language: python
+      python: 3.6
+      script:
+        - python -c 'print("Hello World!")'
+
+    - language: r
+      install:
+        - Rscript -e 'install.packages(c("devtools", "testthat"))'
+      script:
+        - Rscript -e 'library(testthat)'
