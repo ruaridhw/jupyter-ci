@@ -3,15 +3,17 @@ matrix:
     - language: python
       python: 3.6
       script:
-        - python -c 'print("Hello World!")'
+        - pytest
 
     - language: r
       install:
         - Rscript -e 'install.packages(c("devtools", "testthat"))'
       script:
         - Rscript -e 'library(testthat)'
+        - ls -1 | grep -iE '.*r$' | Rscript
 
 before_install:
   - sudo apt-get update -q
-  - sudo apt-get -y install ipython ipython-notebook
-  - sudo -H pip install jupyter
+  - sudo apt-get -y install ipython ipython-notebook pandoc
+  - sudo -H pip install jupyter nbconvert pytest
+  - jupyter nbconvert --to script "*.ipynb"
