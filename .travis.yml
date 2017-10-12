@@ -10,7 +10,7 @@ matrix:
         - Rscript -e 'install.packages(c("devtools", "testthat"))'
       script:
         - Rscript -e 'library(testthat)'
-        - Rscript -e 'sapply(list.files(".", full.names=F, pattern="\\\.[rR]$"), source)' 2>&1 >/dev/null
+        - Rscript -e 'sapply(list.files(".", full.names=F, pattern=".[rR]$"), source)' 2>&1 >/dev/null
 
 before_install:
   - sudo apt-get update -q
