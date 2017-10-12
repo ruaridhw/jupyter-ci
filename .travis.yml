@@ -10,3 +10,8 @@ matrix:
         - Rscript -e 'install.packages(c("devtools", "testthat"))'
       script:
         - Rscript -e 'library(testthat)'
+
+before_install:
+  - sudo apt-get update -q
+  - sudo apt-get -y install ipython ipython-notebook
+  - sudo -H pip install jupyter
